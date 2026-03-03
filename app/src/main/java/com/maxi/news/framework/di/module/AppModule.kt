@@ -3,6 +3,7 @@ package com.maxi.news.framework.di.module
 import android.content.Context
 import android.util.Base64
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.maxi.news.BuildConfig
 import com.maxi.news.common.DefaultDispatcherProvider
@@ -16,6 +17,7 @@ import com.maxi.news.data.source.remote.interceptor.AuthorizationInterceptor
 import com.maxi.news.data.source.remote.interceptor.CacheControlInterceptor
 import com.maxi.news.data.source.remote.interceptor.ErrorHandlingInterceptor
 import com.maxi.news.data.source.remote.interceptor.HttpLoggingInterceptorFactory
+import com.maxi.news.data.sync.BackgroundSyncScheduler
 import com.maxi.news.framework.di.module.AppModule.Constants.BASE_URL
 import com.maxi.news.framework.di.module.AppModule.Constants.CONNECTION_TIME_OUT
 import com.maxi.news.framework.di.module.AppModule.Constants.NEWS_DATABASE
@@ -25,6 +27,7 @@ import com.maxi.news.framework.di.qualifier.ApiKey
 import com.maxi.news.framework.di.qualifier.BaseUrl
 import com.maxi.news.framework.di.qualifier.IsDebug
 import com.maxi.news.framework.di.qualifier.UserAgent
+import com.maxi.news.framework.work.DefaultBackgroundSyncScheduler
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -204,4 +207,25 @@ object AppModule {
         database: NewsDatabase
     ): NewsSourcesDao =
         database.newsSourcesDao()
+
+    @Provides
+    @Singleton
+    fun provideWorkManager(
+        @ApplicationContext context: Context
+    ): WorkManager =
+        WorkManager.getInstance(context)
+
+    @Provides
+    @Singleton
+    fun provideBackgroundSyncScheduler(
+        workManager: WorkManager,
+        json: Json,
+        dispatcherProvider: DispatcherProvider
+    ): BackgroundSyncScheduler =
+        DefaultBackgroundSyncScheduler(
+            workManager,
+            json,
+            dispatcherProvider
+        )
+
 }
