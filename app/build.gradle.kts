@@ -105,6 +105,7 @@ dependencies {
     //kotlinx-serialization
     implementation(libs.koltinx.serialization.json)
     implementation(libs.kotlinx.serialization.converter)
+    implementation(libs.kotlinx.coroutines.guava)
 
     //room
     implementation(libs.room.ktx)
