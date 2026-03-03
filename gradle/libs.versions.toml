@@ -34,6 +34,7 @@ androidxTestCore = "1.5.0"
 robolectric = "4.12.1"
 navigationCompose = "2.6.0"
 hiltNavigationCompose = "1.0.0"
+coroutinesGuava = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,13 +53,14 @@ androidx-compose-foundaion = { group = "androidx.compose.foundation", name = "fo
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodel" }
 androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "viewmodel" }
-hilt-android = { group = "com.google.dagger",  name = "hilt-android", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltWork" }
 hilt-work-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltWork" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 koltinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "kotlinxSerializationConverter" }
+kotlinx-coroutines-guava = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-guava", version.ref = "coroutinesGuava" }
 room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
@@ -73,7 +75,7 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 square-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "squareMockWebServer" }
