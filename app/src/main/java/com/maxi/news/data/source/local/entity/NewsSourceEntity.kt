@@ -5,7 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.maxi.news.data.common.DataConstants.Keys
 import com.maxi.news.data.common.DataConstants.Tables
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = Tables.NEWS_SOURCES)
 data class NewsSourceEntity(
     @PrimaryKey(autoGenerate = false)
